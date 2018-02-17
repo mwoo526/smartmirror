@@ -1,17 +1,14 @@
 (function(){
     'use strict';
-
+// https 모듈과 같이 데이터 통신 역할을 하는 $http
     function forecast($http) {
-        //var weatherdata="null";
 
         var service = {};
-        //var data={};
         service.forecast = null;
 
         service.init = function () {
-            return $http.get('https://api.darksky.net/forecast/a21a1a7167d9ed291cded7f6fd503e01/37.541,126.986')
+            return $http.get('https://api.darksky.net/forecast/'+config.forecast.key+'/'+config.geolocation.latitude+','+config.geolocation.longitude)
                 .then(function (response) {
-                   /* data=JSON.parse(response);*/
                     return service.forecast = response;
                 });
         }
@@ -20,7 +17,7 @@
             if (service.forecast === null) {
                 return  null;
             }
-            service.forecast.data.currently.temperature = parseFloat((service.forecast.data.currently.temperature-32)/108).toFixed(1);
+            service.forecast.data.currently.temperature = parseFloat((service.forecast.data.currently.temperature-32)/1.8).toFixed(1);
             service.forecast.data.currently.summary=service.forecast.data.currently.summary;
             service.forecast.data.currently.wi = "wi-forecast-io-" + service.forecast.data.currently.icon;
 
@@ -31,35 +28,3 @@
     angular.module('myApp').factory('WeatherService',forecast);
 
 }());
-
-
-            /*https.get("https://api.darksky.net/forecast/a21a1a7167d9ed291cded7f6fd503e01/37.541,126.986", function (response) {
-               var info = "";
-               response.on("data", function (chunk) {
-                   console.log("1"+info);
-                   info += chunk;
-                   console.log("2"+info);
-               });
-
-                response.on("end", function result() {
-                   if (response.statusCode === 200) {
-                       try {
-                           var data = JSON.parse(info);
-                           console.log("3"+data);
-                           weatherdata = "Weather is " + data.currently.summary + " in " + data.timezone + ".";
-                           console.log("4"+weatherdata);
-                       } catch (error) {
-                           console.log("Sorry something went wrong");
-                       }
-                   } else {
-                       console.log("Sorry");
-                   }
-                   console.log("5"+weatherdata);
-               });
-
-               console.log("6"+weatherdata);
-           });
-           console.log("7"+weatherdata);*/
-
-
-
