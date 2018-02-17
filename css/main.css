@@ -1,0 +1,39 @@
+body {
+    background-color: black;
+    color: #fff;
+    font-family: Courier New;
+    /*font-family: "HelveticaNeue-UltraLight",'myfont-ttf','HelveticaNeue-UltraLight', 'Open Sans', sans-serif;*/
+    font-weight: 100;
+    position: relative;
+}
+
+/* Displays */
+.top-left{
+    float: left;
+    font-size:55px;
+    padding-left: 50px;
+}
+
+.top-right{
+    float: right;
+    padding-top: 30px;
+    padding-right: 50px;
+}
+
+.summary{
+    font-size: 20px;
+}
+
+.icon-small {
+    position: relative;
+    display: inline-block;
+    font-size: 50px;
+    padding-left: 0px;
+    padding-right: -10px;
+    font-weight: 100;
+    width: 20px;
+    color : white;
+}
+.temperature{
+    font-size: 40px;
+}

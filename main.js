@@ -27,8 +27,8 @@ app.on('ready', createWindow)
 // 창이 닫히면 에플리케이션 종료
 app.on('window-all-closed',function() {
     if (process.platform !== 'darwin') {
-    app.quit()
-}
+        app.quit()
+    }
 })
 
 //2. Express
@@ -49,7 +49,7 @@ var querystring = require('querystring');
 sam.get('/url',function(req,res){
     var stringurl = 'http://news.naver.com/main/main.nhn?mode=LSD&mid=shm&sid1=103';
     //res.send(url.parse(stringurl,true));
-    res.send(url.parse(stringurl,true).query);    
+    res.send(url.parse(stringurl,true).query);
 })
 
 
@@ -61,8 +61,8 @@ sam.get('/event',function(req,res){
 
     // EventHandler 함수 생성
     var connectHandler = function connected(){
-    console.log("Connection Successful");   
-    eventEmitter.emit("data_received");
+        console.log("Connection Successful");
+        eventEmitter.emit("data_received");
     }
 
     // connection 이벤트와 connectHandler 이벤트 핸들러를 연동
