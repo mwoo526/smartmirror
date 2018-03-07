@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 <!--Angular Application 선언-->
+<!--ng-app 을 가진 <html> 태그가 Angular.js 어플리케이션의 주인임을 알려주고 하위 모든 요소들도 Angular로 다루어진다.-->
     <head>
         <meta charset="utf-8">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
@@ -13,6 +14,9 @@
         <script src="js/clock.js"></script>
         <!--날씨를 출력해주는 js-->
         <script src="js/weather.js"></script>
+        <!--뉴스를 출력해주는 js-->
+        <script src="js/news.js"></script>
+
 
         <script type="text/javascript">
             /* setInterval() 함수는 javascript 내에 내장되어 있는 타이머 함수로,
@@ -33,10 +37,18 @@
         <div class="top-left" id="clock"></div>
         <!--오른 쪽 위 날씨-->
         <div class="top-right">
-            <span class="summary">Today's Weather is {{currentForecast.summary}}</span> <br><br>
-            <span class="icon-small dimmed wi wi-fw {{currentForecast.wi}}"> </span>
-            <span class="temperature"> {{currentForecast.temperature}}&deg;</span>
+        <span class="summary">Today's Weather is {{currentForecast.summary}}</span> <br><br>
+        <span class="icon-small dimmed wi wi-fw {{currentForecast.wi}}"> </span>
+        <span class="temperature"> {{currentForecast.temperature}}&deg;</span>
         </div>
-
+        <!-- 가운데 뉴스 -->
+        <div class="news_frame">
+        <div ng-repeat="article in currentNews.articles" ng-if ='5>$index >0'>
+            <image class ="news_image" src="{{article.image}}"></image>
+            <div class="news_title">{{article.title}}</div>
+            <div class="news_des">{{article.des}}</div>
+            <br><br><br>
+        </div>
+        </div>
     </body>
 </html>

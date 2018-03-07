@@ -5,6 +5,9 @@ var config = {
     geolocation : {
         latitude : "37.541",
         longitude:"126.986"
+    },
+    news : {
+       key:"736741bd63f14dbfb02b02e8eedf662e"
     }
 
 }
