@@ -10,4 +10,4 @@
     /*[] 부분은 Dependency 라고 하는데 외부모듈을 가져와 사용하는 부분*/
 
 }(window.angular));
-window 객체-전역객체로 선언
+//window 객체-전역객체로 선언
