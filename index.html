@@ -17,6 +17,7 @@
         <!--뉴스를 출력해주는 js-->
         <script src="js/news.js"></script>
 
+        <script src="js/geolocation.js"></script>
 
         <script type="text/javascript">
             /* setInterval() 함수는 javascript 내에 내장되어 있는 타이머 함수로,
@@ -25,6 +26,11 @@
                 document.getElementById('clock').innerHTML = printClock();
             }, 1000);
         </script>
+
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEzOgwrau_kw8jPIjecd7JOEDog6wLcmA&callback=initMap">
+        </script>
+
 
         <!-- Style -->
         <link rel="stylesheet" href="css/main.css">
@@ -50,6 +56,7 @@
             <div class="news_des">{{article.des}}</div>
             <br><br><br>
         </div>
+
         </div>
     </body>
 </html>
