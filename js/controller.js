@@ -46,6 +46,46 @@
             NewsData();
 
 
+            var defaultView = function() {
+                console.debug("Ok, going to default view...");
+                $scope.focus = "default";
+            }
+
+            // List commands
+            AnnyangService.addCommand(command.whatcanisay, function() {
+                console.debug("Here is a list of commands...");
+                console.log(AnnyangService.commands);
+                $scope.focus = "commands";
+
+            });
+
+            // Go back to default view
+            AnnyangService.addCommand(command.home, defaultView);
+
+            AnnyangService.addCommand(command.name, function(name) {
+                console.debug("Hi", name, "nice to meet you");
+                $scope.user.name = name;
+            });
+
+            // var defaultView ~  추가시 에러 x
+
+
+            var resetCommandTimeout;
+            //Track when the Annyang is listening to us
+            AnnyangService.start(function(listening){
+                $scope.listening = listening;
+            }, function(interimResult){
+                $scope.interimResult = interimResult;
+                $timeout.cancel(resetCommandTimeout);
+            }, function(result){
+                $scope.interimResult = result[0];
+                resetCommandTimeout = $timeout(restCommand, 5000);
+            });
+
+            // var resetCommandTimeout ~  추가시 에러 x
+
+            $scope.interimResult = DEFAULT_COMMAND_TEXT; // 미러의 음성인식된 문구에 보여짐
+
         }
 
         _this.init();
