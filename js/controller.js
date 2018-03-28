@@ -1,7 +1,7 @@
 (function(angular){
     'use strict';
     
-    function myCtrl(GeolocationService,WeatherService,NewsService,$scope,$interval){
+    function myCtrl(WeatherService,NewsService,$scope,$interval){
         /* $scope
         * view와 controller의 매개체 역할
         * controller을 통해 scope에 model과 function을 정의해두면 view가 그것을 사용한다.
@@ -13,16 +13,15 @@
         _this.init=function(){
 
             let refreshMirrorData =function() {
-                GeolocationService.init().then(function(location){
-                    WeatherService.init(location).then(function () {
+                //GeolocationService.init().then(function(){
+                    WeatherService.init().then(function () {
                         $scope.currentForecast = WeatherService.currentForecast();
                     });
-                })
+               // })
             }
             refreshMirrorData();
             $interval(refreshMirrorData,360000);
 
-            $scope.geo = GeolocationService.init()
 
 
             let NewsData=function(){
