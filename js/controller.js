@@ -36,8 +36,6 @@
             refreshMirrorData();
             $interval(refreshMirrorData,360000);
 
-
-
             let NewsData=function(){
                 NewsService.init().then(function(){
                     $scope.currentNews=NewsService.topicNews();

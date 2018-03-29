@@ -4,13 +4,13 @@
 <!--ng-app 을 가진 <html> 태그가 Angular.js 어플리케이션의 주인임을 알려주고 하위 모든 요소들도 Angular로 다루어진다.-->
     <head>
         <meta charset="utf-8">
-
         <script src="bower_components/angular/angular.min.js"></script>
         <script src="bower_components/angular-animate/angular-animate.min.js"></script>
         <script src="bower_components/moment/min/moment.min.js"></script>
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/annyang/dist/annyang.js"></script>
         <script src="bower_components/xml2json/xml2json.js"></script>
+
         <!--Angular.js 로드하고 난뒤 ng-app 지시어를 찾는다.-->
         <script src="js/annyang.js"></script>
         <script src="config.js"></script>
@@ -93,6 +93,7 @@
 
             </div>
         </div>
+
 
     <div class="debug-info" ng-show="debug == true">
         <button ng-click="focus = (focus == 'commands')?'default':'commands'">Commands</button>
