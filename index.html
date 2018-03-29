@@ -4,28 +4,28 @@
 <!--ng-app 을 가진 <html> 태그가 Angular.js 어플리케이션의 주인임을 알려주고 하위 모든 요소들도 Angular로 다루어진다.-->
     <head>
         <meta charset="utf-8">
+
         <script src="bower_components/angular/angular.min.js"></script>
         <script src="bower_components/angular-animate/angular-animate.min.js"></script>
         <script src="bower_components/moment/min/moment.min.js"></script>
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/annyang/dist/annyang.js"></script>
         <script src="bower_components/xml2json/xml2json.js"></script>
         <!--Angular.js 로드하고 난뒤 ng-app 지시어를 찾는다.-->
-
-        <script src="js/app.js"></script>
-        <script src="js/controller.js"></script>
+        <script src="js/annyang.js"></script>
         <script src="config.js"></script>
+        <script src="js/command.js"></script>
+        <script src="js/app.js"></script>
         <!--시간을 출력해주는 js-->
         <script src="js/clock.js"></script>
         <!--날씨를 출력해주는 js-->
         <script src="js/weather.js"></script>
         <!--뉴스를 출력해주는 js-->
         <script src="js/news.js"></script>
-
         <script src="js/geolocation.js"></script>
-
-        <script src="js/annyang.js"></script>
         <script src="js/annyang-service.js"></script>
-        <script src="js/command.js"></script>
+        <script src="js/controller.js"></script>
+
 
         <script type="text/javascript">
             /* setInterval() 함수는 javascript 내에 내장되어 있는 타이머 함수로,
@@ -53,14 +53,15 @@
         </div>
 
         <!-- 가운데 뉴스 -->
-        <!--<div class="news_frame">
-        <div ng-repeat="article in currentNews.articles" ng-if ='5>$index >0'>
+        <!--<div class="news_frame">-->
+        <div class="news_frame animate-grow" ng-repeat="article in currentNews.articles" ng-if ='5>$index >0' ng-show="focus=='news'">
             <image class ="news_image" src="{{article.image}}"></image>
             <div class="news_title">{{article.title}}</div>
             <div class="news_des">{{article.des}}</div>
             <br><br><br>
         </div>
-        </div>-->
+
+        <!--</div>-->
         <div class="container">
             <div class="middle-center">
             <h1>{{complement}}</h1>
@@ -88,8 +89,25 @@
                         <dd>필립스 휴 전등을 제어합니다.</dd>
                     </dl>
                 </div>
+                <div class="interim-result" ng-bind="interimResult"></div>
+
             </div>
         </div>
+
+    <div class="debug-info" ng-show="debug == true">
+        <button ng-click="focus = (focus == 'commands')?'default':'commands'">Commands</button>
+        <button ng-click="debug = false">Close Debug</button>
+        <div ng-show="commands.results.length > 0">
+            <button class="btn btn-default" ng-click="commands.clearResults()">Clear</button>
+            <hr/>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="result in commands.results">
+                    <span class="badge">{{ result.date | date : 'EEE MMM, yyyy hh:mm:ss a' }}</span>
+                    {{ result.content }}
+                </li>
+            </ul>
+        </div>
+    </div>
 
     </body>
 </html>

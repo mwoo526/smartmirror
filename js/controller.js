@@ -1,7 +1,7 @@
 (function(angular){
     'use strict';
     
-    function myCtrl(AnnyangService,WeatherService,NewsService,$scope,$interval){
+    function myCtrl(AnnyangService,WeatherService,NewsService,$scope,$interval,$timeout){
         /* $scope
         * view와 controller의 매개체 역할
         * controller을 통해 scope에 model과 function을 정의해두면 view가 그것을 사용한다.
@@ -69,6 +69,12 @@
 
             // var defaultView ~  추가시 에러 x
 
+            AnnyangService.addCommand(command.news,function(){
+                NewsService.init().then(function(){
+                    $scope.currentNews=NewsService.topicNews();
+                });
+            })
+
 
             var resetCommandTimeout;
             //Track when the Annyang is listening to us
@@ -81,12 +87,19 @@
                 $scope.interimResult = result[0];
                 resetCommandTimeout = $timeout(restCommand, 5000);
             });
-
             // var resetCommandTimeout ~  추가시 에러 x
+        };
 
-            $scope.interimResult = DEFAULT_COMMAND_TEXT; // 미러의 음성인식된 문구에 보여짐
+        _this.addResult = function(result) {
+            _this.results.push({
+                content: result,
+                date: new Date()
+            });
+        };
 
-        }
+        _this.clearResults = function() {
+            _this.results = [];
+        };
 
         _this.init();
     }
