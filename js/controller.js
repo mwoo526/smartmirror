@@ -1,7 +1,7 @@
 (function(angular){
     'use strict';
     
-    function myCtrl(AnnyangService,WeatherService,NewsService,$scope,$interval,$timeout){
+    function myCtrl(AnnyangService,GeolocationService,WeatherService,NewsService,$scope,$interval,$timeout){
         /* $scope
         * view와 controller의 매개체 역할
         * controller을 통해 scope에 model과 function을 정의해두면 view가 그것을 사용한다.
@@ -27,11 +27,11 @@
             restCommand();
 
             let refreshMirrorData =function() {
-                //GeolocationService.init().then(function(){
-                    WeatherService.init().then(function () {
+                GeolocationService.init().then(function(geo){
+                    WeatherService.init(geo).then(function () {
                         $scope.currentForecast = WeatherService.currentForecast();
                     });
-               // })
+                })
             }
             refreshMirrorData();
             $interval(refreshMirrorData,360000);
@@ -94,13 +94,6 @@
                 resetCommandTimeout = $timeout(restCommand, 5000);
             });
             // var resetCommandTimeout ~  추가시 에러 x
-        };
-
-        _this.addResult = function(result) {
-            _this.results.push({
-                content: result,
-                date: new Date()
-            });
         };
 
         _this.clearResults = function() {

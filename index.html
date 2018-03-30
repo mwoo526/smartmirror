@@ -57,20 +57,19 @@
         <!--</div>-->
         <div class="container">
             <br><br><br><br><br><br><br><br><br><br>
+            <div class="news_frame animate-grow"  ng-show="focus =='news'">
+                <div ng-repeat="article in currentNews.articles" ng-if ='5>$index >0'>
+                    <image class ="news_image" src="{{article.image}}"></image>
+                    <div class="news_title">{{article.title}}</div>
+                    <div class="news_des">{{article.des}}</div>
+                    <br><br><br>
+                </div>
+            </div>
             <div class="middle-center">
                 <div class="animate-grow" ng-show="focus=='default'">
                     <h1>{{complement}}</h1>
                 </div>
                 <h3 class="animate-grow" ng-show="focus=='name'">반가워 {{user.name}}야 나는 SAM 이라고 해^^</h3>
-
-                <div class="news_frame animate-grow"  ng-show="focus =='news'">
-                    <div ng-repeat="article in currentNews.articles" ng-if ='5>$index >0'>
-                        <image class ="news_image" src="{{article.image}}"></image>
-                        <div class="news_title">{{article.title}}</div>
-                        <div class="news_des">{{article.des}}</div>
-                        <br><br><br>
-                    </div>
-                </div>
             </div>
             <div class="bottom-center">
                 <div class="commands animate-grow" ng-show="focus == 'commands'">
