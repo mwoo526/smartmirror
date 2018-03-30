@@ -8,12 +8,11 @@
         <script src="bower_components/angular-animate/angular-animate.min.js"></script>
         <script src="bower_components/moment/min/moment.min.js"></script>
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="bower_components/annyang/dist/annyang.js"></script>
         <script src="bower_components/xml2json/xml2json.js"></script>
 
         <!--Angular.js 로드하고 난뒤 ng-app 지시어를 찾는다.-->
-        <script src="js/annyang.js"></script>
         <script src="config.js"></script>
+        <script src="js/annyang.js"></script>
         <script src="js/command.js"></script>
         <script src="js/app.js"></script>
         <!--시간을 출력해주는 js-->
@@ -53,50 +52,46 @@
         </div>
 
         <!-- 가운데 뉴스 -->
-        <!--<div class="news_frame">-->
-        <div class="news_frame animate-grow" ng-repeat="article in currentNews.articles" ng-if ='5>$index >0' ng-show="focus=='news'">
-            <image class ="news_image" src="{{article.image}}"></image>
-            <div class="news_title">{{article.title}}</div>
-            <div class="news_des">{{article.des}}</div>
-            <br><br><br>
-        </div>
+
 
         <!--</div>-->
         <div class="container">
+            <br><br><br><br><br><br><br><br><br><br>
             <div class="middle-center">
-            <h1>{{complement}}</h1>
-                <h3 ng-show="!(user.name === undefined)">{{user.name}}</h3>
+                <div class="animate-grow" ng-show="focus=='default'">
+                    <h1>{{complement}}</h1>
+                </div>
+                <h3 class="animate-grow" ng-show="focus=='name'">반가워 {{user.name}}야 나는 SAM 이라고 해^^</h3>
+
+                <div class="news_frame animate-grow"  ng-show="focus =='news'">
+                    <div ng-repeat="article in currentNews.articles" ng-if ='5>$index >0'>
+                        <image class ="news_image" src="{{article.image}}"></image>
+                        <div class="news_title">{{article.title}}</div>
+                        <div class="news_des">{{article.des}}</div>
+                        <br><br><br>
+                    </div>
+                </div>
             </div>
             <div class="bottom-center">
                 <div class="commands animate-grow" ng-show="focus == 'commands'">
                     <h2>사용 가능한 질문</h2>
                     <dl>
                         <dt>사용 가능한 질문</dt>
-                        <dd>사용 가능한 질문을 보여줍니다.</dd>
-                        <dt>집</dt>
-                        <dd>홈 스크린으로 돌아갑니다.</dd>
-                        <dt>___ 동영상 재생</dt>
-                        <dd>유튜브 동영상을 재생합니다.</dd>
-                        <dt>지도 보여줘</dt>
-                        <dd>현재 거주하는 도시의 지도를 보여줍니다.</dd>
-                        <dt>________지도 보여줘</dt>
-                        <dd>원하는 곳의 지도를 보여줍니다</dd>
-                        <dt>___역 __호선 __행선</dt>
-                        <dd>열차 도착 정보를 알려드립니다.</dd>
-                        <dt>음악 재생</dt>
-                        <dd>음악을 재생 합니다.</dd>
-                        <dt>불 (__색)으로 (켜/꺼)줘</dt>
-                        <dd>필립스 휴 전등을 제어합니다.</dd>
+                        <dt>"홈으로,메인화면" - 초기화면으로 이동합니다.</dt>
+                        <dt>"나는 00 야" - </dt>
+                        <dt>"뉴스 보여줘" - 실시간 Topic 뉴스를 보여줍니다.</dt>
+
                     </dl>
                 </div>
-                <div class="interim-result" ng-bind="interimResult"></div>
-
             </div>
+            <div class="interim-result" ng-bind="interimResult"></div>
         </div>
 
 
     <div class="debug-info" ng-show="debug == true">
         <button ng-click="focus = (focus == 'commands')?'default':'commands'">Commands</button>
+        <button ng-click="focus = (focus == 'commands')?'default':'commands'">Commands</button>
+        <button ng-click="focus = (focus == 'news')?'default':'news'">news</button>
         <button ng-click="debug = false">Close Debug</button>
         <div ng-show="commands.results.length > 0">
             <button class="btn btn-default" ng-click="commands.clearResults()">Clear</button>

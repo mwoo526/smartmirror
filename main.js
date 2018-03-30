@@ -13,7 +13,7 @@ function createWindow () { // createWindow() 함수
     win.loadURL('file://'+__dirname+'/index.html');
 
     //개발자 옵션 설정
-    //win.webContents.openDevTools()
+    win.webContents.openDevTools()
 
     //창이 닫히면 win 객체 참조 해제
     win.on('closed', function() {

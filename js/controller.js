@@ -63,6 +63,7 @@
             AnnyangService.addCommand(command.name, function(name) {
                 console.debug("Hi", name, "nice to meet you");
                 $scope.user.name = name;
+                $scope.focus="name";
             });
 
             // var defaultView ~  추가시 에러 x
@@ -70,8 +71,15 @@
             AnnyangService.addCommand(command.news,function(){
                 NewsService.init().then(function(){
                     $scope.currentNews=NewsService.topicNews();
+                    $scope.focus="news";
                 });
             })
+
+            // Clear log of commands
+            AnnyangService.addCommand(command.clear, function(task) {
+                console.debug("Clearing results");
+                _this.clearResults()
+            });
 
 
             var resetCommandTimeout;
