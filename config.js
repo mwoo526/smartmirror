@@ -8,6 +8,9 @@ var config = {
     },
     news : {
        key:"736741bd63f14dbfb02b02e8eedf662e"
-    }
+    },
 
+    youtube : {
+        key:"AIzaSyB7cQt5ML147cjCmT30NGFVnMW6QNRFAJ4"
+    }
 }

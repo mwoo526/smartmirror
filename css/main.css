@@ -2,7 +2,6 @@ body {
     background-color: black;
     color: #fff;
     font-family: Courier New;
-    /*font-family: "HelveticaNeue-UltraLight",'myfont-ttf','HelveticaNeue-UltraLight', 'Open Sans', sans-serif;*/
     font-weight: 100;
     position: relative;
 }
@@ -20,9 +19,43 @@ body {
     padding-right: 50px;
 }
 
-.center{
-    padding-top: 80px;
-    clear: both;
+.container {
+    z-index: -1; /* so things are still selectable */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.middle-center {
+    display: flex;
+    flex: 1;
+    align-items: stretch;
+    align-self: flex-start;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+.bottom-center {
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.commands {
+    width: 450px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /** weather **/
@@ -73,47 +106,20 @@ body {
 
 }
 
-
-/* enbin */
-.container {
-    z-index: -1; /* so things are still selectable */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+/** Youtube IFRAME **/
+.yt_player_iframe{
+    width: 600px;
+    height: 300px;
 }
 
-.middle-center {
-    display: flex;
-    flex: 1;
-    align-items: stretch;
-    align-self: flex-start;
-    flex-direction: column;
-    width: 100%;
+.contents-box {
     text-align: center;
-    justify-content: center;
-}
-
-.bottom-center {
-    font-family: 'Open Sans', sans-serif;
     width: 100%;
-    text-align: center;
-    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.commands {
-    width: 450px;
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
-}
-
+/*animation*/
 .animate-grow {
     max-height: 1280px !important;
 }
@@ -128,4 +134,32 @@ body {
 
 .animate-grow.ng-hide {
     max-height: 0  !important;
+}
+
+.sleep-cover {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+.fade.ng-hide {
+    opacity: 0;
+}
+
+.fade.ng-hide-remove,
+
+.fade.ng-hide-add {
+    display: block !important;
+}
+
+.fade.ng-hide-remove {
+    transition: all ease 1500ms;
+}
+
+.fade.ng-hide-add {
+    transition: all ease 500ms;
 }

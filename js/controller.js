@@ -1,23 +1,19 @@
 (function(angular){
     'use strict';
-    
-    function myCtrl(AnnyangService,GeolocationService,WeatherService,NewsService,$scope,$interval,$timeout){
-        /* $scope
-        * view와 controller의 매개체 역할
-        * controller을 통해 scope에 model과 function을 정의해두면 view가 그것을 사용한다.
-        * function는 return 값으로 / 변수는 값으로 정의할수 있다.*/
+
+    function myCtrl(AnnyangService,MusicService,GeolocationService,WeatherService,NewsService,$scope,$interval,$timeout,$sce){
 
         let _this= this;
-        var command = COMMANDS.ko;  //index.html 에 command.js 추가
+        var command = COMMANDS.ko;
         var DEFAULT_COMMAND_TEXT = command.default;
+        var functionService = FUNCTIONSERVICE;
         $scope.listening = false;
-        $scope.debug = false;
         $scope.complement = command.hi;
         $scope.focus = "default";
         $scope.user = {};
+        /*'사용 가능 한 질문'이라고 말해보세요.*/
         $scope.interimResult = DEFAULT_COMMAND_TEXT;
 
-        // Reset the command text
         var restCommand = function(){
             $scope.interimResult = DEFAULT_COMMAND_TEXT;
         }
@@ -36,51 +32,43 @@
             refreshMirrorData();
             $interval(refreshMirrorData,360000);
 
-            let NewsData=function(){
-                NewsService.init().then(function(){
-                    $scope.currentNews=NewsService.topicNews();
-                });
-            }
-            NewsData();
-
-
             var defaultView = function() {
-                console.debug("Ok, going to default view...");
-                $scope.focus = "default";
+                functionService.defaultHome($scope);
             }
 
-            // List commands
-            AnnyangService.addCommand(command.whatcanisay, function() {
-                console.debug("Here is a list of commands...");
-                console.log(AnnyangService.commands);
-                $scope.focus = "commands";
-
-            });
-
-            // Go back to default view
+            /*초기화면*/
             AnnyangService.addCommand(command.home, defaultView);
-
+            /*SAM 켜기*/
+            AnnyangService.addCommand(command.wake, function(){
+                functionService.wake($scope);
+            });
+            /*사용가능한 질문*/
+            AnnyangService.addCommand(command.whatcanisay, function() {
+                functionService.whatCanISay($scope);
+            });
+            /*인사*/
             AnnyangService.addCommand(command.name, function(name) {
                 console.debug("Hi", name, "nice to meet you");
                 $scope.user.name = name;
-                $scope.focus="name";
+                functionService.name($scope,$scope.user.name);
             });
-
-            // var defaultView ~  추가시 에러 x
-
+            /*뉴스 기사*/
             AnnyangService.addCommand(command.news,function(){
-                NewsService.init().then(function(){
-                    $scope.currentNews=NewsService.topicNews();
-                    $scope.focus="news";
-                });
+               functionService.news($scope,NewsService);
             })
-
-            // Clear log of commands
-            AnnyangService.addCommand(command.clear, function(task) {
-                console.debug("Clearing results");
-                _this.clearResults()
+            /*영상 재생*/
+            AnnyangService.addCommand(command.music,function(term){
+                functionService.music($scope,$sce,MusicService,term);
+            })
+            /*영상 정지*/
+            AnnyangService.addCommand(command.stopyoutube, function() {
+                functionService.stopyoutube($scope);
             });
-
+            /*SAM 끄기*/
+            AnnyangService.addCommand(command.sleep, function() {
+                console.debug("Ok, going to sleep...");
+                $scope.focus = "sleep";
+            });
 
             var resetCommandTimeout;
             //Track when the Annyang is listening to us
@@ -93,7 +81,6 @@
                 $scope.interimResult = result[0];
                 resetCommandTimeout = $timeout(restCommand, 5000);
             });
-            // var resetCommandTimeout ~  추가시 에러 x
         };
 
         _this.clearResults = function() {
@@ -103,10 +90,7 @@
         _this.init();
     }
     angular.module('myApp').controller('myCtrl',myCtrl);
-    // 모듈.controller("컨트롤러명", constructor function)
-    // constructor function 에 해당하는 함수는 html 에 ng-controller 지시어를 만나면 호출된다.
 
-        
 }(window.angular));
 
 

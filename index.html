@@ -1,108 +1,106 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
-<!--Angular Application 선언-->
-<!--ng-app 을 가진 <html> 태그가 Angular.js 어플리케이션의 주인임을 알려주고 하위 모든 요소들도 Angular로 다루어진다.-->
-    <head>
-        <meta charset="utf-8">
-        <script src="bower_components/angular/angular.min.js"></script>
-        <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-        <script src="bower_components/moment/min/moment.min.js"></script>
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="bower_components/xml2json/xml2json.js"></script>
+<head>
+    <meta charset="utf-8">
 
-        <!--Angular.js 로드하고 난뒤 ng-app 지시어를 찾는다.-->
-        <script src="config.js"></script>
-        <script src="js/annyang.js"></script>
-        <script src="js/command.js"></script>
-        <script src="js/app.js"></script>
-        <!--시간을 출력해주는 js-->
-        <script src="js/clock.js"></script>
-        <!--날씨를 출력해주는 js-->
-        <script src="js/weather.js"></script>
-        <!--뉴스를 출력해주는 js-->
-        <script src="js/news.js"></script>
-        <script src="js/geolocation.js"></script>
-        <script src="js/annyang-service.js"></script>
-        <script src="js/controller.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/xml2json/xml2json.js"></script>
+
+    <script type="text/javascript" src="http://code.responsivevoice.org/responsivevoice.js"></script>
+
+    <script src="config.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/news.js"></script>
+    <script src="js/geolocation.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/annyang.js"></script>
+    <script src="js/annyang-service.js"></script>
+    <script src="js/command.js"></script>
+    <script src="js/responsive.js"></script>
+    <script src="js/controller.js"></script>
 
 
-        <script type="text/javascript">
-            /* setInterval() 함수는 javascript 내에 내장되어 있는 타이머 함수로,
-                        함수 내의 내용들을 지연시간 만큼의 텀으로 계속해서 실행*/
-            setInterval(function() {
-                document.getElementById('clock').innerHTML = printClock();
-            }, 1000);
-        </script>
-        <!-- Style -->
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/weather-icons.css">
-    </head>
-    
-    <body ng-controller="myCtrl as commands">
-    <!--myCtrl as commands 시 에러 x -->
+    <script type="text/javascript">
+        /* setInterval() 함수는 javascript 내에 내장되어 있는 타이머 함수로,
+                    함수 내의 내용들을 지연시간 만큼의 텀으로 계속해서 실행*/
+        setInterval(function () {
+            document.getElementById('clock').innerHTML = printClock();
+        }, 1000);
+    </script>
+    <!-- Style -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/weather-icons.css">
 
-    <!--body 태그안에 ng-controller을 할당후 매칭되는 js파일에서의 $scope 를 파라미터로 받아처리-->
-        <!--왼쪽 위 = 시간-->
-        <div class="top-left" id="clock"></div>
-        <!--오른 쪽 위 날씨-->
-        <div class="top-right">
-        <span class="summary">Today's Weather is {{currentForecast.summary}}</span> <br><br>
-        <span class="icon-small dimmed wi wi-fw {{currentForecast.wi}}"> </span>
-        <span class="temperature"> {{currentForecast.temperature}}&deg;</span>
+</head>
+
+<body ng-controller="myCtrl">
+
+<!--body 태그안에 ng-controller을 할당후 매칭되는 js파일에서의 $scope 를 파라미터로 받아처리-->
+<!--왼쪽 위 = 시간-->
+<div class="top-left" id="clock"></div>
+<!--오른 쪽 위 날씨-->
+<div class="top-right">
+    <span class="summary">Today's Weather is {{currentForecast.summary}}</span> <br><br>
+    <span class="icon-small dimmed wi wi-fw {{currentForecast.wi}}"> </span>
+    <span class="temperature"> {{currentForecast.temperature}}&deg;</span>
+</div>
+
+<!-- 가운데 -->
+<div class="container">
+    <br><br><br><br><br><br><br><br><br><br>
+    <!-- 뉴스 -->
+    <div class="news_frame animate-grow" ng-show="focus =='news'">
+        <div ng-repeat="article in currentNews.articles" ng-if='5>$index >0'>
+            <image class="news_image" src="{{article.image}}"></image>
+            <div class="news_title">{{article.title}}</div>
+            <div class="news_des">{{article.des}}</div>
+            <br><br><br>
+        </div>
+    </div>
+    <!-- 영상 -->
+    <div class="contents-box animate-grow" ng-show="focus=='music'">
+        <iframe id="youtube_player" class="yt_player_iframe" width="100%"
+                ng-src="{{currentYoutubeUrl}}" allowfullscreen="true"
+                allowscriptaccess="always" frameborder="0">
+        </iframe>
+    </div>
+
+    <div class="middle-center">
+        <!-- 안녕 Zele -->
+        <div class="animate-grow" ng-show="focus=='default'">
+            <h1>{{complement}}</h1>
         </div>
 
-        <!-- 가운데 뉴스 -->
+        <!-- 인사 -->
+        <h2 class="animate-grow" ng-show="focus=='name'">반가워요 {{user.name}}님 저는 SAM 이라고 해요 ㅇㅁㅇ</h2>
+    </div>
 
-
-        <!--</div>-->
-        <div class="container">
-            <br><br><br><br><br><br><br><br><br><br>
-            <div class="news_frame animate-grow"  ng-show="focus =='news'">
-                <div ng-repeat="article in currentNews.articles" ng-if ='5>$index >0'>
-                    <image class ="news_image" src="{{article.image}}"></image>
-                    <div class="news_title">{{article.title}}</div>
-                    <div class="news_des">{{article.des}}</div>
-                    <br><br><br>
-                </div>
-            </div>
-            <div class="middle-center">
-                <div class="animate-grow" ng-show="focus=='default'">
-                    <h1>{{complement}}</h1>
-                </div>
-                <h3 class="animate-grow" ng-show="focus=='name'">반가워 {{user.name}}야 나는 SAM 이라고 해^^</h3>
-            </div>
-            <div class="bottom-center">
-                <div class="commands animate-grow" ng-show="focus == 'commands'">
-                    <h2>사용 가능한 질문</h2>
-                    <dl>
-                        <dt>사용 가능한 질문</dt>
-                        <dt>"홈으로,메인화면" - 초기화면으로 이동합니다.</dt>
-                        <dt>"나는 00 야" - </dt>
-                        <dt>"뉴스 보여줘" - 실시간 Topic 뉴스를 보여줍니다.</dt>
-
-                    </dl>
-                </div>
-            </div>
-            <div class="interim-result" ng-bind="interimResult"></div>
-        </div>
-
-
-    <div class="debug-info" ng-show="debug == true">
-        <button ng-click="focus = (focus == 'commands')?'default':'commands'">Commands</button>
-        <button ng-click="focus = (focus == 'commands')?'default':'commands'">Commands</button>
-        <button ng-click="focus = (focus == 'news')?'default':'news'">news</button>
-        <button ng-click="debug = false">Close Debug</button>
-        <div ng-show="commands.results.length > 0">
-            <button class="btn btn-default" ng-click="commands.clearResults()">Clear</button>
-            <hr/>
-            <ul class="list-group">
-                <li class="list-group-item" ng-repeat="result in commands.results">
-                    <span class="badge">{{ result.date | date : 'EEE MMM, yyyy hh:mm:ss a' }}</span>
-                    {{ result.content }}
-                </li>
-            </ul>
+    <div class="bottom-center">
+        <div class="commands animate-grow" ng-show="focus == 'commands'">
+            <h2>사용 가능한 질문</h2>
+            <dl>
+                <dt>사용 가능한 질문</dt>
+                <dt>"홈으로,메인화면" - 초기화면으로 이동합니다.</dt>
+                <dt>"나는 00 야" - SAM 이 반갑게 맞이합니다.</dt>
+                <dt>"뉴스 보여줘" - 실시간 Topic 뉴스를 보여줍니다.</dt>
+                <dt>"* 영상 보여줘" - 관련 영상을 보여줍니다.</dt>
+                <dt>"잠자러가" - SAM 이 자러갑니다</dt>
+                <dt>"일어나" - SAM 이 일어납니다</dt>
+            </dl>
         </div>
     </div>
 
-    </body>
+    <!-- 인식글 -->
+    <div class="interim-result" ng-bind="interimResult"></div>
+</div>
+
+<!-- 잠자러가 -->
+<div ng-show="focus == 'sleep'" class="sleep-cover fade"></div>
+
+</body>
 </html>
