@@ -6,6 +6,13 @@ var config = {
         latitude : "37.541",
         longitude:"126.986"
     },
+
+    dust:{
+        key:"614b5851676a736535306658654a6c",
+        listair:"ListAirQualityByDistrictService",
+        code:"111161"
+    },
+
     news : {
        key:"736741bd63f14dbfb02b02e8eedf662e"
     },

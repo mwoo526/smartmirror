@@ -9,7 +9,8 @@ body {
 /* Displays */
 .top-left{
     float: left;
-    font-size:55px;
+    font-size:30px;
+    padding-top: 30px;
     padding-left: 50px;
 }
 
@@ -58,6 +59,11 @@ body {
     margin-right: auto;
 }
 
+/** clock **/
+.hour{
+    font-size:45px;
+}
+
 /** weather **/
 .summary{
     font-size: 20px;
@@ -75,6 +81,49 @@ body {
 }
 .temperature{
     font-size: 40px;
+}
+
+
+
+.weather-week-descriptor {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    margin-left: auto;
+    margin-bottom: 5px;
+    text-align: right;
+
+}
+
+.weather-week {
+    font-size: 22px;
+    /* add 3/28 Mon. */
+    color: white;
+    border-radius: 5px;
+    margin-top: 3px;
+    margin-left: 10px;
+    background : linear-gradient(to right, #7D7D7D, #7F7F7F);
+}
+
+.weather-week .day {
+    display: inline-block;
+    margin-right: 10px;
+    width: 50px;
+
+    /* add 3/28 Mon. */
+    color: white;
+}
+
+.weather-week .tempreture {
+    display: inline-block;
+    width: 60px;
+}
+
+/* 미세먼지 */
+.dust{
+    font-size: 18px;
+    float: right;
+    padding-top: 8px;
+    padding-right:30px;
 }
 
 /* news */

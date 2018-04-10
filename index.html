@@ -14,24 +14,18 @@
     <script src="config.js"></script>
     <script src="js/app.js"></script>
     <script src="js/clock.js"></script>
+    <script src="js/addZero.js"></script>
     <script src="js/weather.js"></script>
+    <script src="js/dust.js"></script>
     <script src="js/news.js"></script>
     <script src="js/geolocation.js"></script>
-    <script src="js/music.js"></script>
+    <script src="js/music.js"></script>  
     <script src="js/annyang.js"></script>
     <script src="js/annyang-service.js"></script>
     <script src="js/command.js"></script>
     <script src="js/responsive.js"></script>
     <script src="js/controller.js"></script>
 
-
-    <script type="text/javascript">
-        /* setInterval() 함수는 javascript 내에 내장되어 있는 타이머 함수로,
-                    함수 내의 내용들을 지연시간 만큼의 텀으로 계속해서 실행*/
-        setInterval(function () {
-            document.getElementById('clock').innerHTML = printClock();
-        }, 1000);
-    </script>
     <!-- Style -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/weather-icons.css">
@@ -40,15 +34,26 @@
 
 <body ng-controller="myCtrl">
 
-<!--body 태그안에 ng-controller을 할당후 매칭되는 js파일에서의 $scope 를 파라미터로 받아처리-->
 <!--왼쪽 위 = 시간-->
-<div class="top-left" id="clock"></div>
+<div class="top-left">
+    {{clock.year}}/{{clock.month}}/{{clock.day}} {{clock.date}}<br>
+    <span class="hour">{{clock.hour}}:{{clock.minute}} {{clock.ampm}}</span>
+</div>
+
 <!--오른 쪽 위 날씨-->
 <div class="top-right">
-    <span class="summary">Today's Weather is {{currentForecast.summary}}</span> <br><br>
+    <span class="summary">Today's Weather is {{currentForecast.summary}}</span> <br><br><br>
     <span class="icon-small dimmed wi wi-fw {{currentForecast.wi}}"> </span>
     <span class="temperature"> {{currentForecast.temperature}}&deg;</span>
+    <div class="dust">
+        <div> {{dust.name}} </div>
+        <div> 미세먼지 : {{dust.pm}} </div>
+    </div>
 </div>
+
+
+
+
 
 <!-- 가운데 -->
 <div class="container">

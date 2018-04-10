@@ -1,7 +1,7 @@
 (function(angular){
     'use strict';
 
-    function myCtrl(AnnyangService,MusicService,GeolocationService,WeatherService,NewsService,$scope,$interval,$timeout,$sce){
+    function myCtrl(AnnyangService,ClockService,WeatherService,DustService,GeolocationService,MusicService,NewsService,$scope,$interval,$timeout,$sce){
 
         let _this= this;
         var command = COMMANDS.ko;
@@ -22,15 +22,34 @@
 
             restCommand();
 
-            let refreshMirrorData =function() {
+            // 시간
+            let clockData = function(){
+                $scope.clock = ClockService.printClock();
+            }
+            clockData();
+            $interval(clockData,1000);
+
+            // 날씨
+            let weatherData =function() {
                 GeolocationService.init().then(function(geo){
                     WeatherService.init(geo).then(function () {
                         $scope.currentForecast = WeatherService.currentForecast();
+
                     });
                 })
             }
-            refreshMirrorData();
-            $interval(refreshMirrorData,360000);
+            weatherData();
+            $interval(weatherData,360000);
+
+            // 미세먼지
+            let dustData = function(){
+                DustService.init().then(function(){
+                    $scope.dust = DustService.dustForecast();
+                });
+            }
+            dustData();
+            $interval(dustData,1000);
+
 
             var defaultView = function() {
                 functionService.defaultHome($scope);
