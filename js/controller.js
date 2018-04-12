@@ -31,12 +31,12 @@
 
             // 날씨
             let weatherData =function() {
-                GeolocationService.init().then(function(geo){
-                    WeatherService.init(geo).then(function () {
+                //GeolocationService.init().then(function(geo){
+                    WeatherService.init().then(function () {
                         $scope.currentForecast = WeatherService.currentForecast();
-
+                        $scope.weekly = WeatherService.weeklyForecast();
                     });
-                })
+               // })
             }
             weatherData();
             $interval(weatherData,360000);
@@ -71,6 +71,11 @@
                 $scope.user.name = name;
                 functionService.name($scope,$scope.user.name);
             });
+            /*주간 날씨*/
+            AnnyangService.addCommand(command.weather,function(){
+                console.debug("날씨 디버그");
+                functionService.weather($scope,WeatherService);
+            })
             /*뉴스 기사*/
             AnnyangService.addCommand(command.news,function(){
                functionService.news($scope,NewsService);

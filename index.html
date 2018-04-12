@@ -19,7 +19,7 @@
     <script src="js/dust.js"></script>
     <script src="js/news.js"></script>
     <script src="js/geolocation.js"></script>
-    <script src="js/music.js"></script>  
+    <script src="js/music.js"></script>
     <script src="js/annyang.js"></script>
     <script src="js/annyang-service.js"></script>
     <script src="js/command.js"></script>
@@ -53,8 +53,6 @@
 
 
 
-
-
 <!-- 가운데 -->
 <div class="container">
     <br><br><br><br><br><br><br><br><br><br>
@@ -73,6 +71,16 @@
                 ng-src="{{currentYoutubeUrl}}" allowfullscreen="true"
                 allowscriptaccess="always" frameborder="0">
         </iframe>
+    </div>
+
+    <!-- 날씨 -->
+    <div class="animate-grow" ng-show="focus =='weather'">
+        <div ng-repeat="weekWeather in weekly" ng-if="7>$index >0">
+            <span>{{weekWeather.day}}</span><br>
+            <span class="icon-small dimmed wi wi-fw {{weekWeather.wi}}"></span><br>
+            <span>{{weekWeather.temperatureMin}}&deg;</span>
+            <span>{{weekWeather.temperatureMax}}&deg;</span>
+        </div>
     </div>
 
     <div class="middle-center">

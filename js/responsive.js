@@ -32,6 +32,16 @@ var FUNCTIONSERVICE ={
         $scope.focus="name";
     },
 
+    weather : function($scope,WeatherService){
+        WeatherService.init().then(function () {
+            $scope.weekly = WeatherService.weeklyForecast();
+            $scope.focus="weather";
+        });
+        if(responsiveVoice.voiceSupport()) {
+            responsiveVoice.speak("일주일간 날씨에요","Korean Female");
+        }
+    },
+
     news : function($scope,NewsService){
         NewsService.init().then(function(){
             $scope.currentNews=NewsService.topicNews();
