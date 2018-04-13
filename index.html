@@ -42,12 +42,20 @@
 
 <!--오른 쪽 위 날씨-->
 <div class="top-right">
-    <span class="summary">Today's Weather is {{currentForecast.summary}}</span> <br><br><br>
-    <span class="icon-small dimmed wi wi-fw {{currentForecast.wi}}"> </span>
-    <span class="temperature"> {{currentForecast.temperature}}&deg;</span>
+    <span class="summary">Today's Weather </span> <br><br>
     <div class="dust">
-        <div> {{dust.name}} </div>
-        <div> 미세먼지 : {{dust.pm}} </div>
+        <div> 미세먼지 : {{dust.pm}} </div><br>
+    </div>
+    <span class="icon-big dimmed wi wi-fw {{currentForecast.wi}}"> </span>
+    <span class="temperature"> {{currentForecast.temperature}}&deg;</span><br>
+    <!-- 주간 날씨 -->
+    <div class="animate-grow">
+        <div ng-repeat="weekWeather in weekly" ng-if="7>$index >0">
+            <span>{{weekWeather.day}}</span>
+            <span class="icon-small dimmed wi wi-fw {{weekWeather.wi}}"></span>
+            <span>{{weekWeather.temperatureMin}}&deg; / </span>
+            <span>{{weekWeather.temperatureMax}}&deg;</span>
+        </div>
     </div>
 </div>
 
@@ -73,16 +81,6 @@
         </iframe>
     </div>
 
-    <!-- 날씨 -->
-    <div class="animate-grow" ng-show="focus =='weather'">
-        <div ng-repeat="weekWeather in weekly" ng-if="7>$index >0">
-            <span>{{weekWeather.day}}</span><br>
-            <span class="icon-small dimmed wi wi-fw {{weekWeather.wi}}"></span><br>
-            <span>{{weekWeather.temperatureMin}}&deg;</span>
-            <span>{{weekWeather.temperatureMax}}&deg;</span>
-        </div>
-    </div>
-
     <div class="middle-center">
         <!-- 안녕 Zele -->
         <div class="animate-grow" ng-show="focus=='default'">
@@ -90,7 +88,7 @@
         </div>
 
         <!-- 인사 -->
-        <h2 class="animate-grow" ng-show="focus=='name'">반가워요 {{user.name}}님 저는 SAM 이라고 해요 ㅇㅁㅇ</h2>
+        <h2 class="animate-grow" ng-show="focus=='name'">반가워요 {{user.name}}님(o^^o)</h2>
     </div>
 
     <div class="bottom-center">
@@ -98,12 +96,13 @@
             <h2>사용 가능한 질문</h2>
             <dl>
                 <dt>사용 가능한 질문</dt>
-                <dt>"홈으로,메인화면" - 초기화면으로 이동합니다.</dt>
-                <dt>"나는 00 야" - SAM 이 반갑게 맞이합니다.</dt>
-                <dt>"뉴스 보여줘" - 실시간 Topic 뉴스를 보여줍니다.</dt>
-                <dt>"* 영상 보여줘" - 관련 영상을 보여줍니다.</dt>
-                <dt>"잠자러가" - SAM 이 자러갑니다</dt>
-                <dt>"일어나" - SAM 이 일어납니다</dt>
+                <dt>"홈으로,메인화면" </dt>
+                <dt>"안녕 SAM" </dt>
+                <dt>"나는 00 야" </dt>
+                <dt>"잘 자 SAM" </dt>
+                <dt>"뉴스 보여줘" </dt>
+                <dt>"영상/음악 틀어줘" </dt>
+                <dt>"오늘 날씨 어때?"</dt>
             </dl>
         </div>
     </div>

@@ -4,9 +4,10 @@ body {
     font-family: Courier New;
     font-weight: 100;
     position: relative;
+    text-align: center;
 }
 
-/* Displays */
+/** Displays **/
 .top-left{
     float: left;
     font-size:30px;
@@ -17,7 +18,8 @@ body {
 .top-right{
     float: right;
     padding-top: 30px;
-    padding-right: 100px;
+    padding-top: 30px;
+    padding-right: 50px;
 }
 
 .middle-right{
@@ -67,15 +69,15 @@ body {
 
 /** clock **/
 .hour{
-    font-size:45px;
+    font-size:50px;
 }
 
 /** weather **/
 .summary{
-    font-size: 20px;
+    font-size: 30px;
 }
 
-.icon-small {
+.icon-big {
     position: relative;
     display: inline-block;
     font-size: 50px;
@@ -85,15 +87,25 @@ body {
     width: 20px;
     color : white;
 }
+
 .temperature{
-    font-size: 40px;
+    font-size: 50px;
 }
 
-
+.icon-small {
+    position: relative;
+    display: inline-block;
+    font-size: 25px;
+    padding-left: 0px;
+    padding-right: -10px;
+    font-weight: 100;
+    width: 20px;
+    color : white;
+}
 
 .weather-week-descriptor {
     font-family: 'Open Sans', sans-serif;
-    font-size: 12px;
+    font-size: 18px;
     margin-left: auto;
     margin-bottom: 5px;
     text-align: right;
@@ -101,7 +113,7 @@ body {
 }
 
 .weather-week {
-    font-size: 22px;
+    font-size: 12px;
     /* add 3/28 Mon. */
     color: white;
     border-radius: 5px;
@@ -112,28 +124,27 @@ body {
 
 .weather-week .day {
     display: inline-block;
-    margin-right: 10px;
-    width: 50px;
+    margin-right: 8px;
+    width: 30px;
+    font-size: 18px;
 
-    /* add 3/28 Mon. */
+/* add 3/28 Mon. */
     color: white;
 }
 
 .weather-week .tempreture {
     display: inline-block;
-    width: 60px;
+    width: 30px;
+    font-size: 18px;
 }
 
-/* 미세먼지 */
+/** 미세먼지 **/
 .dust{
     font-size: 18px;
-    float: right;
     padding-top: 8px;
-    padding-left: 20px;
-    padding-right:20px;
 }
 
-/* news */
+/** news **/
 .news_frame{
     width:800px;
     height:520px;
@@ -175,7 +186,7 @@ body {
     overflow: hidden;
 }
 
-/*animation*/
+/** animation **/
 .animate-grow {
     max-height: 1280px !important;
 }

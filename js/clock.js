@@ -21,19 +21,19 @@
                 currentHours = addZeros(currentHours - 12,2);
             }
             if(currentDate2 == 0){
-                currentDate2 = "Sunday"
+                currentDate2 = "일요일"
             }else if(currentDate2 == 1){
-                currentDate2 = "Monday"
+                currentDate2 = "월요일"
             }else if(currentDate2 == 2){
-                currentDate2 = "Tuseday"
+                currentDate2 = "화요일"
             }else if(currentDate2 == 3){
-                currentDate2 = "Wednesday"
+                currentDate2 = "수요일"
             }else if(currentDate2 == 4){
-                currentDate2 = "Thursdsay"
+                currentDate2 = "목요일"
             }else if(currentDate2 == 5){
-                currentDate2 = "Friday"
+                currentDate2 = "금요일"
             }else if(currentDate2 == 6){
-                currentDate2 = "Saturday"
+                currentDate2 = "토요"
             }
 
             service.clock.year = currentYear;
