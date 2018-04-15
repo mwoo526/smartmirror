@@ -79,10 +79,9 @@
                 functionService .name($scope, $scope.user.name);
             });
             /*주간 날씨*/
-            AnnyangService.addCommand(command.weather, function () {
-                console.debug("날씨 디버그");
-                functionService .weather($scope, WeatherService);
-            })
+            AnnyangService.addCommand(command.weather, function() {
+                functionService .weather($scope,WeatherService,DustService);
+            });
             /*뉴스 기사*/
             AnnyangService.addCommand(command.news, function () {
                 functionService .news($scope, NewsService);
@@ -108,9 +107,7 @@
                 $scope.user.name = name;
                 functionService .name($scope,$scope.user.name);
             });
-            AnnyangService.addCommand(command.weather, function() {//날씨 어때?
-                functionService .weather($scope,WeatherService,DustService);
-            });
+
 
 
             var resetCommandTimeout;
