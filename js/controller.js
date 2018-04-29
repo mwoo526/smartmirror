@@ -7,7 +7,8 @@
                      DustService, 
                      GeolocationService, 
                      MusicService,
-                     NewsService, 
+                     NewsService,
+                    TrafficService,
                      $scope, $interval, $timeout, $sce) {
 
         let _this = this;
@@ -107,7 +108,11 @@
                 $scope.user.name = name;
                 functionService .name($scope,$scope.user.name);
             });
-
+            //  교통편
+            AnnyangService.addCommand(command.traffic, function () {
+                functionService .traffic($scope,TrafficService);
+                //$scope.traffic=TrafficService;
+            })
 
 
             var resetCommandTimeout;

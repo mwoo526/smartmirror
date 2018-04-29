@@ -186,6 +186,14 @@ body {
     overflow: hidden;
 }
 
+/* traffic*/
+#map {
+    height: 60%;
+    width : 40%;
+    margin : auto;
+
+}
+
 /** animation **/
 .animate-grow {
     max-height: 1280px !important;
