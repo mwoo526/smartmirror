@@ -9,6 +9,7 @@
                      MusicService,
                      NewsService,
                     TrafficService,
+                    GmailService,
                      $scope, $interval, $timeout, $sce) {
 
         let _this = this;
@@ -57,6 +58,16 @@
             }
             dustData();
             $interval(dustData, 1000);
+
+            let gmail = function() {
+               // GmailService.init().then(function () {
+                    /*GmailService.authorize().then(function () {
+                        $scope.message = GmailService.listmessge(token);
+                    })*/
+              //  });
+                $scope.message = GmailService.authorize()
+            }
+            gmail();
 
 
             var defaultView = function () {

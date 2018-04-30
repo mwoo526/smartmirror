@@ -25,6 +25,7 @@
     <script src="js/geolocation.js"></script>
     <script src="js/music.js"></script>
     <script src="js/traffic.js"></script>
+    <script src="js/gmail.js"></script>
     <script src="js/annyang.js"></script>
     <script src="js/annyang-service.js"></script>
     <script src="js/command.js"></script>
@@ -70,6 +71,7 @@
 <div class="container">
     <br><br><br><br><br><br><br><br><br><br>
 
+
     <div id="map" ng-show="focus=='traffic'">
         {{traffic}}
     </div>
@@ -94,6 +96,7 @@
         <!-- 안녕 Zele -->
         <div class="animate-grow" ng-show="focus=='default'">
             <h1>{{complement}}</h1>
+            {{message}}
         </div>
 
         <!-- 인사 -->
