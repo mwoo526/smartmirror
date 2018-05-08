@@ -31,6 +31,7 @@
     <script src="js/command.js"></script>
     <script src="js/responsive.js"></script>
     <script src="js/controller.js"></script>
+    <script src="js/gmailList.js"></script>
 
     <!-- Style -->
     <link rel="stylesheet" href="css/main.css">
@@ -70,7 +71,7 @@
 <!-- 가운데 -->
 <div class="container">
     <br><br><br><br><br><br><br><br><br><br>
-
+    <div class="middle-center">
 
     <div id="map" ng-show="focus=='traffic'">
         {{traffic}}
@@ -92,13 +93,12 @@
         </iframe>
     </div>
 
-    <div class="middle-center">
+
         <!-- 안녕 Zele -->
         <div class="animate-grow" ng-show="focus=='default'">
             <h1>{{complement}}</h1>
-            {{message}}
-        </div>
 
+        </div>
         <!-- 인사 -->
         <h2 class="animate-grow" ng-show="focus=='name'">반가워요 {{user.name}}님(o^^o)</h2>
     </div>
@@ -119,9 +119,20 @@
         </div>
     </div>
 
+    <!--Gmail-->
+    <div class="bottom-left">
+        <fieldset>
+            <legend>Gmail</legend>
+        {{message}}
+        </fieldset>
+    </div>
     <!-- 인식글 -->
     <div class="interim-result" ng-bind="interimResult"></div>
+
 </div>
+
+
+
 
 <!-- 잠자러가 -->
 <div ng-show="focus == 'sleep'" class="sleep-cover fade"></div>
