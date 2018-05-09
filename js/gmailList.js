@@ -14,7 +14,7 @@
         service.list=function(){
 
             /* secret key 와 token */
-            var credentials=JSON.parse(fs.readFileSync('./gmail_file/client_secret.json','utf8'));
+            var credentials=JSON.parse(fs.readFileSync('./gmail_file/gmail_client_secret.json','utf8'));
             var clientSecret = credentials.installed.client_secret;
             var clientId = credentials.installed.client_id;
             var redirectUrl = credentials.installed.redirect_uris[0];

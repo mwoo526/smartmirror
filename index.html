@@ -32,6 +32,7 @@
     <script src="js/responsive.js"></script>
     <script src="js/controller.js"></script>
     <script src="js/gmailList.js"></script>
+    <script src="js/calendar.js"></script>
 
     <!-- Style -->
     <link rel="stylesheet" href="css/main.css">
@@ -97,6 +98,10 @@
         <!-- 안녕 Zele -->
         <div class="animate-grow" ng-show="focus=='default'">
             <h1>{{complement}}</h1>
+            <div ng-repeat="list in calendar" ng-if="5>$index >0">
+            {{list.start.dateTime || list.start.date}} -  {{list.summary}}
+            <!--{{list.start.dateTime || list.start.date}} -  {{list.summary}}-->
+            </div>
 
         </div>
         <!-- 인사 -->

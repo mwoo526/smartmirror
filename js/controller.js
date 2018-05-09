@@ -10,6 +10,7 @@
                      NewsService,
                     TrafficService,
                     GmailListService,
+                    CalendarService,
                      $scope, $interval, $timeout, $sce) {
 
         let _this = this;
@@ -65,6 +66,14 @@
             }
             gmail();
             $interval(gmail, 5000);
+
+            let calendar = function(){
+                CalendarService.init().then(function(token){
+                $scope.calendar=CalendarService.list(token)
+                })
+            }
+            calendar();
+            $interval(calendar,1000);
 
 
             var defaultView = function () {

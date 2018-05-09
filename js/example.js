@@ -5,7 +5,7 @@ var TOKEN_PATH = '../gmail_file/minwoo_Gmail_Token.json';
 
 
 function result(){
-var credentials=JSON.parse(fs.readFileSync('../gmail_file/client_secret.json','utf8'));
+var credentials=JSON.parse(fs.readFileSync('../gmail_file/gmail_client_secret.json','utf8'));
 var clientSecret = credentials.installed.client_secret;
 var clientId = credentials.installed.client_id;
 var redirectUrl = credentials.installed.redirect_uris[0];
@@ -81,7 +81,7 @@ oauth2Client.credentials=JSON.parse(token);
 //gmailexample()
 result()
 function authorize(){
-    var credentials=JSON.parse(fs.readFileSync('../gmail_file/client_secret.json','utf8'));
+    var credentials=JSON.parse(fs.readFileSync('../gmail_file/gmail_client_secret.json','utf8'));
     var clientSecret = credentials.installed.client_secret;
     var clientId = credentials.installed.client_id;
     var redirectUrl = credentials.installed.redirect_uris[0];

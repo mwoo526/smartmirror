@@ -2,146 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e3083d8-dbfa-4e05-b733-9218775265a9" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/async.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/gmail_file/gmail_client_secret.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/js/calendar.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
+      <change beforePath="$PROJECT_DIR$/gmail_file/client_secret.json" afterPath="$PROJECT_DIR$/gmail_file/client_secret.json" />
       <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change beforePath="$PROJECT_DIR$/js/controller.js" afterPath="$PROJECT_DIR$/js/controller.js" />
       <change beforePath="$PROJECT_DIR$/js/example.js" afterPath="$PROJECT_DIR$/js/example.js" />
-      <change beforePath="$PROJECT_DIR$/js/gmail.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/CHANGELOG.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/all.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/allLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/allSeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/any.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/anyLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/anySeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/apply.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/applyEach.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/applyEachSeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/asyncify.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/auto.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/autoInject.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/bower.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/cargo.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/compose.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/concat.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/concatLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/concatSeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/constant.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/detect.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/detectLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/detectSeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/dir.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/dist/async.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/dist/async.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/dist/async.min.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/doDuring.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/doUntil.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/doWhilst.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/during.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/each.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/eachLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/eachOf.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/eachOfLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/eachOfSeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/eachSeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/ensureAsync.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/every.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/everyLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/everySeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/filter.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/filterLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/filterSeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/find.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/findLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/findSeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/foldl.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/foldr.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/forEach.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/forEachLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/forEachOf.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/forEachOfLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/forEachOfSeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/forEachSeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/forever.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/groupBy.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/groupByLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/groupBySeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/inject.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/DoublyLinkedList.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/applyEach.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/breakLoop.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/consoleFunc.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/createTester.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/doLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/doParallel.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/doParallelLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/eachOfLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/filter.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/findGetResult.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/getIterator.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/initialParams.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/iterator.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/map.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/notId.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/once.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/onlyOnce.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/parallel.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/queue.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/reject.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/setImmediate.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/slice.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/withoutIndex.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/wrapAsync.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/log.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/map.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/mapLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/mapSeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/mapValues.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/mapValuesLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/mapValuesSeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/memoize.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/nextTick.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/parallel.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/parallelLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/priorityQueue.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/queue.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/race.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/reduce.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/reduceRight.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/reflect.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/reflectAll.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/reject.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/rejectLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/rejectSeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/retry.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/retryable.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/select.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/selectLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/selectSeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/seq.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/series.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/setImmediate.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/some.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/someLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/someSeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/sortBy.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/timeout.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/times.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/timesLimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/timesSeries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/transform.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/tryEach.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/unmemoize.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/until.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/waterfall.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/whilst.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/wrapSync.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/js/gmailList.js" afterPath="$PROJECT_DIR$/js/gmailList.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -161,11 +29,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="gmailList.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gmailList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/gmailList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+            <state relative-caret-position="133">
+              <caret line="34" column="53" lean-forward="false" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="calendar.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/calendar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="331">
+              <caret line="28" column="19" lean-forward="true" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="minwoo_Calendar_Token.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gmail_file/minwoo_Calendar_Token.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="130" lean-forward="false" selection-start-line="0" selection-start-column="130" selection-end-line="0" selection-end-column="130" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gmail_client_secret.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gmail_file/gmail_client_secret.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="minwoo_Gmail_Token.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gmail_file/minwoo_Gmail_Token.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="70" lean-forward="false" selection-start-line="0" selection-start-column="70" selection-end-line="0" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="client_secret.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gmail_file/client_secret.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -174,18 +92,18 @@
       <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="722">
-              <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+            <state relative-caret-position="1425">
+              <caret line="75" column="32" lean-forward="false" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="traffic.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/traffic.js">
+      <file leaf-file-name="command.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/command.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="5" />
+            <state relative-caret-position="380">
+              <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -194,8 +112,18 @@
       <file leaf-file-name="weather.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/weather.js">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="11" column="43" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="361">
-              <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+              <caret line="100" column="66" lean-forward="true" selection-start-line="100" selection-start-column="66" selection-end-line="100" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -224,6 +152,7 @@
       <find>restCommand</find>
       <find>summarr</find>
       <find>icon-small</find>
+      <find>service.token</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -272,10 +201,12 @@
         <option value="$PROJECT_DIR$/js/async.js" />
         <option value="$PROJECT_DIR$/js/gmail.js" />
         <option value="$PROJECT_DIR$/js/example.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/js/gmailList.js" />
+        <option value="$PROJECT_DIR$/gmail_file/minwoo_Calendar_Token.json" />
         <option value="$PROJECT_DIR$/js/controller.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/calendar.js" />
       </list>
     </option>
   </component>
@@ -326,6 +257,11 @@
             <path>
               <item name="smartmirror" type="b2602c69:ProjectViewProjectNode" />
               <item name="smartmirror" type="462c0819:PsiDirectoryNode" />
+              <item name="gmail_file" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="smartmirror" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smartmirror" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -342,20 +278,21 @@
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gmail-server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../annyang-electron-demo-master" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/이민우/workspace/smartmirror/index.html" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\이민우\workspace\smartmirror\js" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\이민우\workspace\smartmirror\gmail_file" />
       <recent name="C:\Users\이민우\workspace\smartmirror" />
       <recent name="C:\Users\이민우\workspace\smartmirror\js" />
       <recent name="C:\Users\이민우\workspace\SAM_example-master\css" />
       <recent name="C:\Users\이민우\workspace\SAM_example-master" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\이민우\workspace\smartmirror\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -451,22 +388,26 @@
       <workItem from="1525616212824" duration="1139000" />
       <workItem from="1525665563466" duration="11129000" />
       <workItem from="1525764423514" duration="781000" />
+      <workItem from="1525788695771" duration="638000" />
+      <workItem from="1525791018801" duration="7635000" />
+      <workItem from="1525839862097" duration="6341000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191053000" />
+    <option name="totallyTimeSpent" value="205667000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1688988" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5029762" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.49702382" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -480,7 +421,7 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -526,22 +467,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/html/weather.html" />
-    <entry file="file://$PROJECT_DIR$/js/strict.js" />
-    <entry file="file://$PROJECT_DIR$/fonts/NanumBarunGothicBold.ttf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fonts/weathericons-regular-webfont.eot">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fonts/weathericons-regular-webfont.ttf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -673,24 +598,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/command.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="41" lean-forward="false" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gmail_file/minwoo_Gmail_Token.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -715,13 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="121" column="16" lean-forward="false" selection-start-line="121" selection-start-column="16" selection-end-line="121" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -730,13 +634,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/gmail.js" />
-    <entry file="file://$PROJECT_DIR$/gmail_file/client_secret.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -749,15 +646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="45" column="11" lean-forward="false" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -769,18 +657,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/weather.js">
+    <entry file="file://$PROJECT_DIR$/gmail_file/client_secret.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gmail_file/credentials.json" />
+    <entry file="file://$PROJECT_DIR$/gmail_file/gmail_client_secret.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gmail_file/minwoo_Gmail_Token.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="70" lean-forward="false" selection-start-line="0" selection-start-column="70" selection-end-line="0" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gmail_file/minwoo_Calendar_Token.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="130" lean-forward="false" selection-start-line="0" selection-start-column="130" selection-end-line="0" selection-end-column="130" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1425">
+          <caret line="75" column="32" lean-forward="false" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/command.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/gmailList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+        <state relative-caret-position="133">
+          <caret line="34" column="53" lean-forward="false" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/weather.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="11" column="43" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="100" column="66" lean-forward="true" selection-start-line="100" selection-start-column="66" selection-end-line="100" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/calendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="28" column="19" lean-forward="true" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
           <folding />
         </state>
       </provider>
