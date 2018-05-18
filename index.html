@@ -10,9 +10,14 @@
     <script src="bower_components/xml2json/xml2json.js"></script>
 
     <script type="text/javascript" src="http://code.responsivevoice.org/responsivevoice.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoPpPBa5798b42gMwYym6wMnSCsUXncHQ&callback=initMap">
-    </script>
 
+    <script>
+        document.write('<base href="' + document.location + '" />');
+    </script>
+    <script data-require="google-maps@1.0.0" data-semver="1.0.0" src="http://maps.google.com/maps/api/js?key=AIzaSyB9lH2Q94i1eYdSCqsNgFWDkWT3zO1gwQ8&v=3.exp&sensor=false"></script>
+    <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.17"></script>
+    <script data-require="lodash-underscore@*" data-semver="2.4.1" src="https://rawgit.com/lodash/lodash/2.4.1/dist/lodash.underscore.min.js"></script>
+    <script data-require="angular-google-maps@*" data-semver="1.1.4" src="https://rawgit.com/nlaplante/angular-google-maps/1.1.4/dist/angular-google-maps.min.js"></script>
 
 
     <script src="config.js"></script>
@@ -24,7 +29,6 @@
     <script src="js/news.js"></script>
     <script src="js/geolocation.js"></script>
     <script src="js/music.js"></script>
-    <script src="js/traffic.js"></script>
     <script src="js/gmail.js"></script>
     <script src="js/annyang.js"></script>
     <script src="js/annyang-service.js"></script>
@@ -52,7 +56,8 @@
 <div class="top-right">
     <span class="summary">Today's Weather </span> <br><br>
     <div class="dust">
-        <div> 미세먼지 : {{dust.pm}} </div><br>
+        <div> 미세먼지 : {{dust.pm}}</div>
+        <br>
     </div>
     <span class="icon-big dimmed wi wi-fw {{currentForecast.wi}}"> </span>
     <span class="temperature"> {{currentForecast.temperature}}&deg;</span><br>
@@ -68,40 +73,62 @@
 </div>
 
 
-
 <!-- 가운데 -->
 <div class="container">
     <br><br><br><br><br><br><br><br><br><br>
+
+    <!--<div class="bottom-left">
+     &lt;!&ndash;Calendar&ndash;&gt;
+    <fieldset>
+        <legend>Calendar</legend>
+        <div ng-repeat="list in calendar" ng-if="5>$index >0">
+            {{list.start.dateTime || list.start.date}} -  {{list.summary}}
+            &lt;!&ndash;{{list.start.dateTime || list.start.date}} -  {{list.summary}}&ndash;&gt;
+        </div>
+    </fieldset>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    &lt;!&ndash;Gmail&ndash;&gt;
+
+        <fieldset>
+            <legend>Gmail</legend>
+            {{message}}
+        </fieldset>
+    </div>-->
+
     <div class="middle-center">
 
-    <div id="map" ng-show="focus=='traffic'">
-        {{traffic}}
-    </div>
-    <!-- 뉴스 -->
-    <div class="news_frame animate-grow" ng-show="focus =='news'">
-        <div ng-repeat="article in currentNews.articles" ng-if='5>$index >0'>
-            <image class="news_image" src="{{article.image}}"></image>
-            <div class="news_title">{{article.title}}</div>
-            <div class="news_des">{{article.des}}</div>
-            <br><br><br>
+        <div id="map" ng-show="focus=='traffic'">
+            {{traffic}}
         </div>
-    </div>
-    <!-- 영상 -->
-    <div class="contents-box animate-grow" ng-show="focus=='music'">
-        <iframe id="youtube_player" class="yt_player_iframe" width="100%"
-                ng-src="{{currentYoutubeUrl}}" allowfullscreen="true"
-                allowscriptaccess="always" frameborder="0">
-        </iframe>
-    </div>
+        <!-- 뉴스 -->
+        <div class="news_frame animate-grow" ng-show="focus =='news'">
+            <div ng-repeat="article in currentNews.articles" ng-if='5>$index >0'>
+                <image class="news_image" src="{{article.image}}"></image>
+                <div class="news_title">{{article.title}}</div>
+                <div class="news_des">{{article.des}}</div>
+                <br><br><br>
+            </div>
+        </div>
+        <!-- 영상 -->
+        <div class="contents-box animate-grow" ng-show="focus=='music'">
+            <iframe id="youtube_player" class="yt_player_iframe" width="100%"
+                    ng-src="{{currentYoutubeUrl}}" allowfullscreen="true"
+                    allowscriptaccess="always" frameborder="0">
+            </iframe>
+        </div>
 
+        <!-- 길찾기 -->
+        <div class="panel-body" ng-show="focus=='direction'">
+            <div class="interim-result" ng-bind="destination" ng-model="directions.destination"></div>
+            <google-map control="map.control" center="map.center" zoom="map.zoom">
+                <marker coords="marker.center"></marker>
+            </google-map>
+            <div id="directionsList" ng-show="showList" class="panel panel-primary"></div>
+        </div>
 
         <!-- 안녕 Zele -->
         <div class="animate-grow" ng-show="focus=='default'">
             <h1>{{complement}}</h1>
-            <div ng-repeat="list in calendar" ng-if="5>$index >0">
-            {{list.start.dateTime || list.start.date}} -  {{list.summary}}
-            <!--{{list.start.dateTime || list.start.date}} -  {{list.summary}}-->
-            </div>
 
         </div>
         <!-- 인사 -->
@@ -113,30 +140,22 @@
             <h2>사용 가능한 질문</h2>
             <dl>
                 <dt>사용 가능한 질문</dt>
-                <dt>"홈으로,메인화면" </dt>
-                <dt>"안녕 SAM" </dt>
-                <dt>"나는 00 야" </dt>
-                <dt>"잘 자 SAM" </dt>
-                <dt>"뉴스 보여줘" </dt>
-                <dt>"영상/음악 틀어줘" </dt>
+                <dt>"홈으로,메인화면"</dt>
+                <dt>"안녕 SAM"</dt>
+                <dt>"나는 00 야"</dt>
+                <dt>"잘 자 SAM"</dt>
+                <dt>"뉴스 보여줘"</dt>
+                <dt>"영상/음악 틀어줘"</dt>
                 <dt>"오늘 날씨 어때?"</dt>
             </dl>
         </div>
     </div>
 
-    <!--Gmail-->
-    <div class="bottom-left">
-        <fieldset>
-            <legend>Gmail</legend>
-        {{message}}
-        </fieldset>
-    </div>
+
     <!-- 인식글 -->
     <div class="interim-result" ng-bind="interimResult"></div>
 
 </div>
-
-
 
 
 <!-- 잠자러가 -->

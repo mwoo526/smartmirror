@@ -78,11 +78,6 @@ var FUNCTIONSERVICE = {
         });
     },
 
-    traffic : function($scope,TrafficService){
-
-        $scope.traffic=TrafficService;
-        $scope.focus="traffic";
-    }
 
 
 }

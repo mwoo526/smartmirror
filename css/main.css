@@ -62,10 +62,9 @@ body {
 .bottom-left{
     font-family: 'Open Sans', sans-serif;
     width: 30%;
-    float: bottom;
     text-align: left;
     padding-left:50px;
-    padding-top: 170px;
+    padding-top: 20px;
 }
 
 .commands {
@@ -194,14 +193,20 @@ body {
     overflow: hidden;
 }
 
-/* traffic*/
-#map {
-    height: 60%;
-    width : 40%;
-    margin : auto;
-
+/** Google Map **/
+.angular-google-map-container {
+    height: 300px;
+    width:400px;
 }
 
+.panel-primary {
+    height: 220px;
+    width:400px;
+    overflow: hidden;
+}
+.panel-body{
+    margin : auto;
+}
 /** animation **/
 .animate-grow {
     max-height: 1280px !important;
