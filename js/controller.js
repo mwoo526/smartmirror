@@ -10,6 +10,7 @@
                     NewsService,
                     GmailListService,
                     CalendarService,
+                    TrafficService,
                     $scope, $interval, $timeout, $sce) {
 
         let _this = this;
@@ -68,7 +69,7 @@
                         $scope.showList = true;
 
                     } else {
-                        alert('Google route unsuccesfull!');
+                        console.log('Goog9le route unsuccesfull!');
                     }
                 });
         }
@@ -76,53 +77,6 @@
         _this.init = function () {
 
             restCommand();
-            console.log(typeof(restCommand));
-
-           /* let mapData = function () {
-                // map object
-                $scope.map = {
-                    control: {},
-                    center: {
-                        latitude: 37.588442,
-                        longitude: 127.006197
-                    },
-                    zoom: 15
-                };
-
-                // marker object
-                $scope.marker = {
-                    center: {
-                        latitude: 37.588442,
-                        longitude: 127.006197
-                    }
-                }
-
-
-
-                // get directions using google maps api
-                /!*$scope.getDirections = function () {
-                    var request = {
-                        origin: new google.maps.LatLng(37.588442, 127.006197),
-                        //: document.getElementById('destination').value,
-                        //destination: $interimResult,
-                        destination: $scope.destination,
-                        provideRouteAlternatives: true,
-                        travelMode: eval("google.maps.DirectionsTravelMode.TRANSIT")
-                    };
-                    directionsService.route(request, function (response, status) {
-                        if (status === google.maps.DirectionsStatus.OK) {
-                            directionsDisplay.setDirections(response);
-                            directionsDisplay.setMap($scope.map.control.getGMap());
-                            directionsDisplay.setPanel(document.getElementById('directionsList'));
-                            $scope.showList = true;
-                        } else {
-                            alert('Google route unsuccesfull!');
-                        }
-                    });
-                }*!/
-            }
-            mapData();*/
-
 
             // 시간
             let clockData = function () {
@@ -151,6 +105,7 @@
             }
             dustData();
             $interval(dustData, 1000);
+
 
 
             // 메일
@@ -195,7 +150,8 @@
             AnnyangService.addCommand(command.weather, function () {
                 functionService.weather($scope, WeatherService, DustService);
             });
-            /*뉴스 기사*/
+
+            /*뉴스기사*/
             AnnyangService.addCommand(command.news, function () {
                 functionService.news($scope, NewsService);
             })
@@ -235,6 +191,16 @@
                 });
                 $scope.focus="direction"
             })
+
+            /*교통편*/
+            AnnyangService.addCommand(command.traffic,function(){
+                var traffic=function() {
+                    functionService.traffic($scope, TrafficService)
+                }
+                traffic();
+                $interval(traffic,1000,10);
+            })
+
 
 
             var resetCommandTimeout;

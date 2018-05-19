@@ -207,6 +207,14 @@ body {
 .panel-body{
     margin : auto;
 }
+/* traffic*/
+#traffic {
+    height: 500px;
+    width: 600px;
+    margin: auto;
+
+}
+
 /** animation **/
 .animate-grow {
     max-height: 1280px !important;
