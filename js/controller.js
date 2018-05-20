@@ -52,11 +52,8 @@
         }
 
         var restDestination=function(){
-           // $scope.destination="목적지를말해주세요."
                 var request = {
                     origin: new google.maps.LatLng(37.588442, 127.006197),
-                    //: document.getElementById('destination').value,
-                    //destination: $interimResult,
                     destination: $scope.destination,
                     provideRouteAlternatives: true,
                     travelMode: eval("google.maps.DirectionsTravelMode.TRANSIT")
@@ -107,28 +104,10 @@
             $interval(dustData, 1000);
 
 
-
-            // 메일
-          /*  let gmail = function () {
-                $scope.message = GmailListService.list()
-            }
-            gmail();
-            //주기 늘림
-            $interval(gmail, 36000);
-
-            let calendar = function () {
-                CalendarService.init().then(function (token) {
-                    $scope.calendar = CalendarService.list(token)
-                })
-            }
-            calendar();
-            //주기 늘림
-            $interval(calendar, 36000);*/
-
-
             var defaultView = function () {
                 functionService.defaultHome($scope);//홈으로 이동
             }
+
 
             /*초기화면*/
             AnnyangService.addCommand(command.home, defaultView);
@@ -178,7 +157,6 @@
             });
             /*길 찾 기*/
             AnnyangService.addCommand(command.direction,function(){
-
                 AnnyangService.start(function (listening) {
                     $scope.listening = listening;
                 }, function (destination) {
@@ -189,17 +167,34 @@
                     $timeout(restDestination, 1000);
                     restDestinationout=$timeout($scope.destination,5000)
                 });
+                if (responsiveVoice.voiceSupport()) {
+                    responsiveVoice.speak("길찾기입니다.", "Korean Female");
+                }
                 $scope.focus="direction"
             })
-
             /*교통편*/
             AnnyangService.addCommand(command.traffic,function(){
+                if (responsiveVoice.voiceSupport()) {
+                    responsiveVoice.speak("교통편입니다.", "Korean Female");
+                }
                 var traffic=function() {
                     functionService.traffic($scope, TrafficService)
                 }
                 traffic();
                 $interval(traffic,1000,10);
             })
+
+            /*사용자 정보 화면*/
+            AnnyangService.addCommand(command.camera,function(){
+                if (responsiveVoice.voiceSupport()) {
+                    responsiveVoice.speak("민우님의 사용자 정보입니다.", "Korean Female");
+                }
+                var camera=function() {
+                    functionService.camera($scope, GmailListService, CalendarService);
+                }
+                camera();
+                $interval(camera,5000,20);
+            });
 
 
 
