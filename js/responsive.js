@@ -85,12 +85,12 @@ var FUNCTIONSERVICE = {
 
     },
     /*사용자 정보 화면*/
-    camera : function($scope, GmailListService, CalendarService){
+    user : function($scope, GmailListService, CalendarService){
         $scope.message = GmailListService.list();
         CalendarService.init().then(function(token){
             $scope.calendar= CalendarService.list(token)
         })
-        $scope.focus="camera";
+        $scope.focus="user";
 
     }
 

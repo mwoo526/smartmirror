@@ -18,10 +18,18 @@
         var DEFAULT_COMMAND_TEXT = command.default;
         var functionService = FUNCTIONSERVICE;
 
-        // instantiate google map objects for directions
+        //길찾기 관련변수
         var directionsDisplay = new google.maps.DirectionsRenderer();
         var directionsService = new google.maps.DirectionsService();
         var geocoder = new google.maps.Geocoder();
+
+
+        //웹캠 관련변수
+        var enabled = false; // A flag to know when start or stop the camera
+        var WebCamera = require("webcamjs"); // Use require to add webcamjs
+        var remote = require('electron').remote; // Load remote component that contains the dialog dependency
+        var fs = require('fs'); // Load the File System to execute our common tasks (CRUD)
+
 
         $scope.listening = false;
         $scope.complement = command.hi; //안녕 Zele!
@@ -51,6 +59,66 @@
             $scope.interimResult = DEFAULT_COMMAND_TEXT;
         }
 
+        //웹캠 시작
+        var webcamStart =function() {
+            return new Promise(function(resolve,reject){
+                if (!enabled) {
+                    enabled = true;
+                    return resolve(WebCamera.attach('#camdemo'));
+                } else {
+                    //return reject(WebCamera.reset());  //Webcam 이 리셋되면 안됨.
+
+                }
+            })
+            };
+
+        //웹캠 파일 저장
+        var savephoto=function() {
+            console.log("Save button clicked");
+            if (enabled) {
+                return WebCamera.snap(function (data_uri) {
+                    var now = new Date();
+                    var fileName = __dirname+'/UserFaces/' + now.getFullYear() + now.getMonth() + now.getDate() + "_" + now.getHours() + now.getMinutes() + now.getSeconds() + '.png';
+                    console.log(fileName);
+
+                    var imageBuffer = processBase64Image(data_uri);
+
+                    try {
+                        fs.mkdirSync('UserFaces');
+                    } catch (e) {
+                        if (e.code != 'EEXIST') throw e; // 존재할경우 패스처리함.
+                    }
+
+                    fs.writeFile(fileName, imageBuffer.data, function (err) {
+                        if (err) {
+                            console.log("Cannot save the file :'( time to cry !");
+                        } else {
+                            console.log("Image saved succesfully");
+                        }
+                    });
+
+                });
+            } else {
+                console.log("Please enable the camera first to take the snapshot !");
+            }
+        }
+
+        //image 변환
+        function processBase64Image(dataString) {
+            var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),
+                response = {};
+
+            if (matches.length !== 3) {
+                return new Error('Invalid input string');
+            }
+
+            response.type = matches[1];
+            response.data = new Buffer(matches[2], 'base64');
+
+            return response;
+        }
+
+        //길찾기 정보
         var restDestination=function(){
                 var request = {
                     origin: new google.maps.LatLng(37.588442, 127.006197),
@@ -70,6 +138,7 @@
                     }
                 });
         }
+
 
         _this.init = function () {
 
@@ -107,7 +176,6 @@
             var defaultView = function () {
                 functionService.defaultHome($scope);//홈으로 이동
             }
-
 
             /*초기화면*/
             AnnyangService.addCommand(command.home, defaultView);
@@ -185,17 +253,26 @@
             })
 
             /*사용자 정보 화면*/
-            AnnyangService.addCommand(command.camera,function(){
+            AnnyangService.addCommand(command.user,function(){
                 if (responsiveVoice.voiceSupport()) {
                     responsiveVoice.speak("민우님의 사용자 정보입니다.", "Korean Female");
                 }
-                var camera=function() {
-                    functionService.camera($scope, GmailListService, CalendarService);
+                var user=function() {
+                    functionService.user($scope, GmailListService, CalendarService);
                 }
-                camera();
-                $interval(camera,5000,20);
+                user();
+                $interval(user,5000,20);
             });
 
+            /* 카메라 */
+            AnnyangService.addCommand(command.webcam,function() {
+                AnnyangService.start(function () {
+                    //webcam 시작 후 6초뒤 사진 저장
+                    webcamStart().then(function () {
+                        $timeout(savephoto, 6000);
+                    })
+                });
+        });
 
 
             var resetCommandTimeout;
