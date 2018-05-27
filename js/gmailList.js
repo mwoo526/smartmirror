@@ -31,7 +31,7 @@
                 userId: 'me',
             }, function (err, response) {
                 if(err) return err;
-                for (let i = 0; i < 5; i++) {
+                for (let i = 0; i < 1; i++) {
                     let Id = response.messages[i].id;
                     google.gmail('v1').users.messages.get({
                         auth: oauth2Client,

@@ -24,13 +24,6 @@
         var geocoder = new google.maps.Geocoder();
 
 
-        //웹캠 관련변수
-        var enabled = false; // A flag to know when start or stop the camera
-        var WebCamera = require("webcamjs"); // Use require to add webcamjs
-        var remote = require('electron').remote; // Load remote component that contains the dialog dependency
-        var fs = require('fs'); // Load the File System to execute our common tasks (CRUD)
-
-
         $scope.listening = false;
         $scope.complement = command.hi; //안녕 Zele!
         $scope.focus = "default"; //사용가능한 질문이라 말해보세요
@@ -57,65 +50,6 @@
 
         var restCommand = function () {
             $scope.interimResult = DEFAULT_COMMAND_TEXT;
-        }
-
-        //웹캠 시작
-        var webcamStart =function() {
-            return new Promise(function(resolve,reject){
-                if (!enabled) {
-                    enabled = true;
-                    return resolve(WebCamera.attach('#camdemo'));
-                } else {
-                    //return reject(WebCamera.reset());  //Webcam 이 리셋되면 안됨.
-
-                }
-            })
-            };
-
-        //웹캠 파일 저장
-        var savephoto=function() {
-            console.log("Save button clicked");
-            if (enabled) {
-                return WebCamera.snap(function (data_uri) {
-                    var now = new Date();
-                    var fileName = __dirname+'/UserFaces/' + now.getFullYear() + now.getMonth() + now.getDate() + "_" + now.getHours() + now.getMinutes() + now.getSeconds() + '.png';
-                    console.log(fileName);
-
-                    var imageBuffer = processBase64Image(data_uri);
-
-                    try {
-                        fs.mkdirSync('UserFaces');
-                    } catch (e) {
-                        if (e.code != 'EEXIST') throw e; // 존재할경우 패스처리함.
-                    }
-
-                    fs.writeFile(fileName, imageBuffer.data, function (err) {
-                        if (err) {
-                            console.log("Cannot save the file :'( time to cry !");
-                        } else {
-                            console.log("Image saved succesfully");
-                        }
-                    });
-
-                });
-            } else {
-                console.log("Please enable the camera first to take the snapshot !");
-            }
-        }
-
-        //image 변환
-        function processBase64Image(dataString) {
-            var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),
-                response = {};
-
-            if (matches.length !== 3) {
-                return new Error('Invalid input string');
-            }
-
-            response.type = matches[1];
-            response.data = new Buffer(matches[2], 'base64');
-
-            return response;
         }
 
         //길찾기 정보
@@ -261,18 +195,8 @@
                     functionService.user($scope, GmailListService, CalendarService);
                 }
                 user();
-                $interval(user,5000,20);
+                $interval(user,1000,10);
             });
-
-            /* 카메라 */
-            AnnyangService.addCommand(command.webcam,function() {
-                AnnyangService.start(function () {
-                    //webcam 시작 후 6초뒤 사진 저장
-                    webcamStart().then(function () {
-                        $timeout(savephoto, 6000);
-                    })
-                });
-        });
 
 
             var resetCommandTimeout;
