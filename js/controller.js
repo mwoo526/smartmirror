@@ -73,6 +73,166 @@
                 });
         }
 
+        var deleteModule=function(moduleName) {
+            var resolve = require('resolve');
+            var solvedName = require.resolve(moduleName),
+                nodeModule = require.cache[solvedName];
+            console.log(solvedName);
+            if (nodeModule) {
+                for (var i = 0; i < nodeModule.children.length; i++) {
+                    var child = nodeModule.children[i];
+                    deleteModule(child.filename);
+                }
+                delete require.cache[solvedName];
+            }
+        }
+
+        var enabled = false; // A flag to know when start or stop the camera
+        var WebCamera = require("webcamjs"); // Use require to add webcamjs
+
+        var startwebcam= function() {
+
+            return new Promise(function(resolve,reject) {
+                if (!enabled) { // Start the camera !
+                    enabled = true;
+                    WebCamera.set({
+                        width: 320,
+                        height: 240
+                    });
+                    return resolve(WebCamera.attach('#camdemo'));
+                    console.log("The camera has been started");
+                } else { // Disable the camera !
+                    enabled = false;
+                    return reject(WebCamera.reset());
+                    console.log("The camera has been disabled");
+                }
+            })
+
+            // return WebCamera;
+        }
+
+//웹캠 관련 변수
+        //var fs = require('fs');
+        var options = {
+            accessKeyId: "",
+            secretAccessKey: "",
+            region: ""
+        };
+
+        var filekeyname = "";
+        var user = "";
+
+//사용자 인식
+        var image = function () {
+            var AWS = require('aws-sdk');
+            var s3 = new AWS.S3(options);
+            var rekognition = new AWS.Rekognition(options);
+            //$scope.focus = rekognition;
+            console.log("rekognition button clicked");
+            if(enabled) {
+                WebCamera.snap(function (data_uri) {
+                    var now = new Date();
+                    filekeyname = now.getFullYear() + now.getMonth() + now.getDate() + "_" + now.getHours() + now.getMinutes() + now.getSeconds() + '.png';
+
+                    var imageBuffer = processBase64Image(data_uri); //캡쳐 이미지 변환
+                    var file = imageBuffer.data;
+
+                    //캡처된 이미지를 S3에 업로드
+                    var s3params = {
+                        Bucket: "zele-sam",
+                        Key: filekeyname,
+                        Body: file
+                    };
+                    s3.upload(s3params, function (err, res) {
+                        if (err) {
+                            console.log("Error uploading data:", err);
+                        } else {
+                            console.log("Successfully uploaded data:", res);
+                            var rekogparams = {
+                                CollectionId: "zele-sam",
+                                Image: {
+                                    S3Object: {
+                                        Bucket: "zele-sam",
+                                        Name: filekeyname
+                                    }
+                                },
+                                FaceMatchThreshold: 60.0,
+                                MaxFaces: 5
+                            };
+                            //원래 저장된 사용자와 비교
+                            rekognition.searchFacesByImage(rekogparams, function (err, data) {
+                                if (err) {
+                                    console.log(err, err.stack);
+                                } else { //가장 일치율이 높은 데이터 추출
+                                    for (var i = 0; i < data.FaceMatches.length - 1; i++) {
+                                        for (var j = i; j < data.FaceMatches.length; j++) {
+                                            if (data.FaceMatches[i].Similarity < data.FaceMatches[j].Similarity) {
+                                                var a = {};
+                                                a = data.FaceMatches[i];
+                                                data.FaceMatches[i] = data.FaceMatches[j];
+                                                data.FaceMatches[j] = a;
+                                            }
+                                        }
+                                    }
+                                    console.log(data.FaceMatches[0].Face.ExternalImageId);
+                                    console.log(data.FaceMatches[0].Similarity);
+
+                                    user = data.FaceMatches[0].Face.ExternalImageId;
+                                    if (user == "mwoo1") {
+                                        $scope.focus = "user";
+                                        $scope.user.name = "민우";
+                                        functionService.name($scope, $scope.user.name);
+                                        var user = function () {
+                                            $scope.message = GmailListService.minwooList();
+                                            CalendarService.minwooInit().then(function (token) {
+                                                $scope.calendar = CalendarService.list(token)
+                                            })
+                                        }
+                                        user();
+                                        $interval(user, 1000, 10);
+
+                                    } else if (user == "seon1" || user == "seon2") {
+                                        $scope.focus = "user";
+                                        $scope.user.name = "종휘";
+                                        functionService.name($scope, $scope.user.name);
+                                        /*$scope.message = GmailListService.list();
+                                        CalendarService.init().then(function (token) {
+                                            $scope.calendar = CalendarService.list(token)
+                                        })*/
+                                    } else if (user == "yoonga1" || user == "yoonga2") {
+                                        $scope.focus = "user";
+                                        $scope.user.name = "가은";
+                                        functionService.name($scope, $scope.user.name);
+                                        var user = function () {
+                                            $scope.message = GmailListService.gaeunList();
+                                            CalendarService.gaeunInit().then(function (token) {
+                                                $scope.calendar = CalendarService.list(token)
+                                            })
+                                        }
+                                        user();
+                                        $interval(user, 1000, 10);
+                                    }
+
+                                    //비교한 후 캡처된 사진 삭제
+                                    var deleteparams = {
+                                        Bucket: "zele-sam",
+                                        Key: filekeyname
+                                    };
+                                    s3.deleteObject(deleteparams, function (err, data) {
+                                        if (err) console.log(err, err.stack);
+                                        else console.log(data);
+                                    });
+                                }
+                            });
+                        }
+                    });
+                });
+            }
+            else{
+                console.log("Please enable the camera first to take the snapshot !");
+            }
+        };
+
 
         _this.init = function () {
 
@@ -119,6 +279,7 @@
             });
             /*사용가능한 질문*/
             AnnyangService.addCommand(command.whatcanisay, function () {
+                deleteModule("aws-sdk")
                 functionService.whatCanISay($scope);
             });
             /*인사*/
@@ -187,15 +348,26 @@
             })
 
             /*사용자 정보 화면*/
-            AnnyangService.addCommand(command.user,function(){
-                if (responsiveVoice.voiceSupport()) {
-                    responsiveVoice.speak("민우님의 사용자 정보입니다.", "Korean Female");
-                }
-                var user=function() {
-                    functionService.user($scope, GmailListService, CalendarService);
-                }
-                user();
-                $interval(user,1000,10);
+            AnnyangService.addCommand(command.webcam, function () { //사용자 인식
+
+                $scope.focus = "webcam";
+                //$scope.camdemo = WebcamService;
+                startwebcam().then(function () {
+                    //$scope.camdemo = startwebcam();
+                    $timeout(image, 3000);
+                    $timeout(console.log("Test!!!!!!!!!!!!!!!!!1"),5000);
+                })
+
+               /* var resolve = require('resolve');
+
+                var path = resolve.sync('aws-sdk');
+                console.log("Path to module found:", path);
+
+                if (require.cache[path]){
+                    console.log("HI!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1")
+                    delete require.cache[path];
+                }*/
+                //$timeout(WebCamera.reset,5000);
             });
 
 

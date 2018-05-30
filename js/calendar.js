@@ -12,10 +12,31 @@
         let service = {};
         service.calendar=null;
 
-        service.init=function(){
+        service.minwooInit=function(){
             const credentials = JSON.parse(fs.readFileSync('./gmail_file/client_secret.json', 'utf8'));
             //console.log(credentials)
             const TOKEN_PATH = './gmail_file/minwoo_Calendar_Token.json';
+            //const TOKEN_PATH = './gmail_file/gaeun_Calendar_Token.json';
+            const {client_secret, client_id, redirect_uris} = credentials.installed;
+            const oAuth2Client = new OAuth2Client(client_id, client_secret, redirect_uris[0]);
+
+            const token = fs.readFileSync(TOKEN_PATH, 'utf8');
+            return new Promise((resolve,reject)=>{
+                fs.readFile(TOKEN_PATH, (err, token) => {
+                    if (err) return reject(err);
+                    //oAuth2Client.setCredentials(JSON.parse(token))
+                    oAuth2Client.credentials=JSON.parse(token)
+                    return resolve(oAuth2Client);
+                });
+            })
+
+        }
+
+        service.gaeunInit=function(){
+            const credentials = JSON.parse(fs.readFileSync('./gmail_file/client_secret.json', 'utf8'));
+            //console.log(credentials)
+            //const TOKEN_PATH = './gmail_file/minwoo_Calendar_Token.json';
+            const TOKEN_PATH = './gmail_file/gaeun_Calendar_Token.json';
             const {client_secret, client_id, redirect_uris} = credentials.installed;
             const oAuth2Client = new OAuth2Client(client_id, client_secret, redirect_uris[0]);
 

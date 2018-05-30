@@ -60,7 +60,6 @@ var FUNCTIONSERVICE = {
         if (responsiveVoice.voiceSupport()) {
             responsiveVoice.speak("반가워요" + name + "님. 오늘도 멋지시네요!", "Korean Female");
         }
-        $scope.focus = "name";
     },
 
     weather: function ($scope, WeatherService, DustService) { //날씨 어때?
